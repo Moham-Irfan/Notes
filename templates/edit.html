@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/edited" method = "post">
+        <div class="form-group">
+
+            <div class="mb-3" >
+                <input  hidden name = "id" value="{{ entry['entry_id'] }}" type="text">
+                <input  class="form-control mx-auto" name="title" value="{{ entry['title'] }}" type="text">
+            </div>
+
+            <textarea  class="form-control mb-3" id="entry" name="entry" rows="6">{{ entry['entry'] }}</textarea>
+
+            <button class="btn btn-primary" type="submit">Edit</button>
+
+        </div>
+
+
+    </form>
+
+{% endblock %}

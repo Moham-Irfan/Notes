@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">SN.NO</th>
+            <th class="text-start">Entry Time</th>
+            <th class="text-start">Last Edit</th>
+            <th class="text-start">Title</th>
+            <th class="text-start">View</th>
+            <th class="text-start">Edit</th>
+            <th class="text-start">Delete</th>
+
+        </tr>
+    </thead>
+   <tbody>
+
+                {% for entry in entries %}
+
+                        <tr>
+                            <td class="text-start">{{ loop.index }}</td>
+                            <td class="text-start">{{ entry["entry_time"] }}</td>
+                            <td class="text-start">{{ entry["edit_time"] }}</td>
+                            <td class="text-start">{{ entry["title"] }}</td>
+                            <td class="text-end">
+                                <form action="/view" method="post">
+                                    <input hidden name="entry" value="{{ entry['entry_id'] }}">
+                                    <button>View</button>
+                                </form>
+                            </td>
+                            <td class="text-end">
+                                <form action="/edit" method="post">
+                                    <input hidden name="entry" value="{{ entry['entry_id'] }}">
+                                    <button>Edit</button>
+                                </form>
+                            </td>
+                            <td class="text-end">
+                                <form action="/delete" method="post">
+                                    <input hidden name="entry" value="{{ entry['entry_id'] }}">
+                                    <button>Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                {% endfor %}
+
+    </tbody>
+
+{% endblock %}

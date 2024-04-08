@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/home" method="post">
+        <div class="form-group">
+
+            <div class="mb-3" >
+                <input readonly class="form-control mx-auto" value="{{ entry['title'] }}" type="text">
+            </div>
+
+            <textarea readonly  class="form-control mb-3" id="entry" rows="6">{{ entry['entry'] }}</textarea>
+
+            <button class="btn btn-primary" type="submit">Home</button>
+
+        </div>
+
+
+    </form>
+
+{% endblock %}
